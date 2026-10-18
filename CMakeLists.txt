@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: 2025-2026 Igal Alkon
+# SPDX-License-Identifier: MIT
+
+cmake_minimum_required(VERSION 3.25)
+project(CppPlayground CXX)
+
+add_subdirectory(box)
+add_subdirectory(cache_padding)
+add_subdirectory(covariant_dispatch)
+add_subdirectory(dci_traits)
+add_subdirectory(match)
+add_subdirectory(pinned_colony)
+add_subdirectory(reference_wrapper)
+add_subdirectory(special_day)
+
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL "16.1")
+    add_subdirectory(gnu26_compile_time_adventures)
+    add_subdirectory(gnu26_contract_evaluation)
+    add_subdirectory(gnu26_contracts)
+    add_subdirectory(gnu26_lifetimes)
+    add_subdirectory(gnu26_modules)
+    add_subdirectory(gnu26_reflections)
+else()
+    message(STATUS "GCC 16.1 or higher compiler was not detected, gnu26 examples will be omitted.")
+endif()
